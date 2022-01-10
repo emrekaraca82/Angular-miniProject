@@ -1,0 +1,78 @@
+<div class="form-group row" >
+
+    <div class="form-group row" *ngIf="information.id!=0" >
+        <label class="col-sm-2 col-form-label" >ID</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="id"
+            placeholder="Adınız giriniz">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Firma Adı</label>
+        <div class="col-sm-10">
+        <select class="form-control" [(ngModel)]="company">
+            <option>--Select--</option>
+            <option *ngFor="let dataItem of companies">
+                {{dataItem.name}}
+            </option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Adınız</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="firstName"
+            placeholder="Adınız giriniz">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Soyadınız</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="lastName"
+            placeholder="Soyadınız giriniz">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Gsm</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="gsm"
+            placeholder="Telefon numaranızı giriniz">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">İş Tel</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="businessPhone"
+            placeholder="İş telefonuz giriniz">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Adres</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="address"
+            placeholder="Adresiniz giriniz">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Resim</label>
+        <div class="ml-3 bd-highlight" style="width: 40%;">
+            <img [src]=PhotoFilePath height="250px;" width="200px;">
+            <input type="file" (change)="uploadPhoto($event)" class="mt-2"/>
+            </div>
+    </div>
+
+</div>
+<button (click)="addInformation()" *ngIf="information.id==0" class="btn btn-success float-right">
+    Kaydet
+</button>
+
+<button (click)="updateInformation()" *ngIf="information.id!=0" class="btn btn-primary float-right">
+    Güncelle
+</button>
